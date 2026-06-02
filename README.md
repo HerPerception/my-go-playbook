@@ -1,1 +1,1 @@
-# Contains all official projects worked on in Go and other programming languages.
+# Contains all learnings in Go and other programming languages.
