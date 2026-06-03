@@ -8,6 +8,7 @@ func FindMinMax(myMap map[string]int) (string, string) {
 	for key, val := range myMap {
 		if min == 0 {
 			min = val
+			minVal = key
 		}
 		if min > val {
 			min = val

@@ -13,8 +13,8 @@ package main
 // }
 
 func CheckUser(registryMap map[string]bool, key string) (bool, bool) {
-	active, ok := registryMap[key]
-	return active, ok
+	active, exists := registryMap[key]
+	return active, exists
 }
 
 // func main() {
