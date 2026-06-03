@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type Employee struct {
 	Name       string
 	Department string
@@ -22,12 +20,13 @@ func GroupEmployees(EmployeeData []Employee) map[string][]string {
 	}
 	return EmployeesRegistry
 }
-func main() {
-	input := []Employee{
-		{Name: "Alice", Department: "HR"},
-		{Name: "Bob", Department: "IT"},
-		{Name: "Charlie", Department: "IT"},
-		{Name: "David", Department: "HR"},
-	}
-	fmt.Println(GroupEmployees(input))
-}
+
+// func main() {
+// 	input := []Employee{
+// 		{Name: "Alice", Department: "HR"},
+// 		{Name: "Bob", Department: "IT"},
+// 		{Name: "Charlie", Department: "IT"},
+// 		{Name: "David", Department: "HR"},
+// 	}
+// 	fmt.Println(GroupEmployees(input))
+// }

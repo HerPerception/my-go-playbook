@@ -72,11 +72,11 @@ func TestDrill5_LRUCache(t *testing.T) {
 	}
 }
 
-// func TestDrill6_FindMinMax(t *testing.T) {
-// 	inventory := map[string]int{"pens": 15, "books": 120, "erasers": 5, "rulers": 50}
-// 	maxProd, minProd := FindMinMax(inventory)
+func TestDrill6_FindMinMax(t *testing.T) {
+	inventory := map[string]int{"pens": 15, "books": 120, "erasers": 5, "rulers": 50}
+	maxProd, minProd := FindMinMax(inventory)
 
-// 	if maxProd != "books" || minProd != "erasers" {
-// 		t.Errorf("Drill 6 Failed: Got Max=%s, Min=%s", maxProd, minProd)
-// 	}
-// }
+	if maxProd != "books" || minProd != "erasers" {
+		t.Errorf("Drill 6 Failed: Got Max=%s, Min=%s", maxProd, minProd)
+	}
+}
