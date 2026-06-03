@@ -1,0 +1,82 @@
+Here is a set of practical coding drills focused on data structures in Go. They start with the basics and move toward real-world patterns.
+Try to solve them on your own, or pick one and we can code it together!
+🟢 Easy Drills (Warm-ups)
+Drill 1: The Slice Filter
+Goal: Create a slice of integers from 1 to 20. Write a function that takes this slice and returns a new slice containing only the even numbers.
+Focus: Slice allocation and looping.
+Drill 2: The Registry Check
+Goal: Create a map representing a username registry (keys are usernames, values are booleans representing if they are active). Write a function to check if a specific username exists in the map, handling the case where it does not.
+Focus: Map lookups and the Go "comma ok" idiom.
+🟡 Medium Drills (Core Logic)
+Drill 3: Unique Item Finder
+Goal: Take a slice of strings with duplicate values (e.g., ["apple", "banana", "apple", "cherry", "banana"]). Use a map to filter out all duplicates and return a slice of only unique items.
+Focus: Using maps as "sets".
+Drill 4: Grouping Data
+Goal: Create a list of employees where each employee has a Name (string) and a Department (string). Group these employees into a map where the key is the department, and the value is a slice of employee names belonging to that department.
+Focus: Slice-of-slices and maps pointing to slices (map[string][]string).
+🔴 Hard Drills (Advanced Patterns)
+Drill 5: The LRU Cache Tracker (Simplified)
+Goal: Implement a system that tracks the last 3 pages a user visited. Use a slice to store the history. Every time a user visits a new page, append it. If the slice length exceeds 3, remove the oldest item (the first element).
+Focus: Advanced slice manipulation (reslicing).
+Drill 6: Inventory Min/Max Finder
+Goal: You have a map of product names and their stock quantities. Find and print the product with the highest stock and the product with the lowest stock in a single pass.
+Focus: Map tracking and loop optimizations.
+Which drill would you like to build right now? Let me know, and I can:
+Give you hints to write it yourself.
+Provide a starter template with the main function set up.
+Give you the full solution with an explanation of how it works.
+
+
+Easy Drills
+Drill 1: The Slice Filter
+The Goal: Write a function that takes a slice of numbers from 1 to 20 and returns a new slice containing only the even numbers.
+Sample Input: []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+Expected Output: []int{2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
+Drill 2: The Registry Check
+The Goal: Create a map representing registered users (where the key is their username and the value is a boolean indicating if they are active). Write a lookup function that returns two things: whether the user exists at all, and whether they are active.
+Sample Input:
+Registry Map: map[string]bool{"alice": true, "bob": false}
+Lookup Target 1: "alice"
+Lookup Target 2: "eve"
+Expected Output:
+For "alice": Exists: true, Active: true
+For "eve": Exists: false, Active: false
+🟡 Medium Drills
+Drill 3: Unique Item Finder
+The Goal: Take a slice of strings containing duplicate values. Use a map to filter out the duplicates and return a clean slice containing only unique strings.
+Sample Input: []string{"apple", "banana", "apple", "cherry", "banana", "grape"}
+Expected Output: []string{"apple", "banana", "cherry", "grape"} (Note: Order does not matter, as long as each word appears exactly once).
+Drill 4: Grouping Data
+The Goal: You have a collection of employees, where each employee has a Name and a Department. Write a function to group them into a map where the key is the Department name, and the value is a slice of all names belonging to that department.
+Sample Input:
+go
+// Employee definitions:
+{Name: "Alice", Department: "HR"}
+{Name: "Bob", Department: "IT"}
+{Name: "Charlie", Department: "IT"}
+{Name: "David", Department: "HR"}
+Use code with caution.
+
+Expected Output: A map structured exactly like this:
+go
+map[string][]string{
+    "HR": {"Alice", "David"},
+    "IT": {"Bob", "Charlie"},
+}
+Use code with caution.
+
+🔴 Hard Drills
+Drill 5: The LRU Cache Tracker
+The Goal: Create a system that tracks a user's browser history but caps it at a maximum of 3 items. Every time a user visits a page, append it to a slice. If the history slice grows larger than 3, automatically remove the oldest item (the very first element).
+Sample Input sequence:
+User visits "home"
+User visits "about"
+User visits "contact"
+User visits "pricing"
+Expected Output History
+: []string{"about", "contact", "pricing"} (The "home" page is removed because it was the oldest).
+Drill 6: Inventory Min/Max Finder
+The Goal: You are given a map representing an inventory list (keys are item names, values are quantities). In a single loop over the map, find and return both the product with the highest quantity and the product with the lowest quantity.
+Sample Input Map: map[string]int{"pens": 15, "books": 120, "erasers": 5, "rulers": 50}
+Expected Output: Highest: "books", Lowest: "erasers"
+Go ahead and write your code using these examples to test your results. Let me know when you finish a drill, or if you need a blank starter template with just the function signatures to write your code into!
