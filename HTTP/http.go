@@ -1,28 +1,33 @@
 package main
 
-import "fmt"
+import (
+	"html/template"
+	"net/http"
+)
 
-// 1. Define the interface contract
-type Speaker interface {
-	Speak() string
-}
+var tpl *template.Template
 
-// 2. Define a concrete type
-type Dog struct {
-	Name string
-}
-
-// 3. Implement the method (implicit satisfaction)
-func (d Dog) Speak() string {
-	return "Woof!"
-}
-
-// 4. Accept the interface as a parameter
-func MakeItSpeak(s Speaker) {
-	fmt.Println(s.Speak())
+type Greet struct {
+	First  string
+	Second string
 }
 
 func main() {
-	d := Dog{Name: "Buddy"}
-	MakeItSpeak(d) // Works because Dog has a Speak() method
+	http.HandleFunc("/", Hello)
+	http.Handle()
+	http.Handler(func(w, http.ResponseWriter, r *http.Request))
+	http.ServeMux()
+	http.ListenAndServe(":8080", nil)
+	// const s = `"Fran & Freddie's Diner" <tasty@example.com>`
+	// fmt.Println(html.EscapeString(s))
+}
+
+// var tpl template.
+func Hello(w http.ResponseWriter, r *http.Request) {
+	//fmt.Fprint(w, "Hello There")
+	tpl, _ = template.ParseFiles("templates/index.html")
+	message := "Welcome To Divine's Corner"
+	message2 := "What Could We Help You With?"
+	response := Greet{message, message2}
+	tpl.Execute(w, response)
 }

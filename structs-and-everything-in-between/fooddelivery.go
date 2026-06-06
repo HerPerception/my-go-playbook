@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type food struct {
 	preptime int
 }
@@ -21,9 +19,10 @@ func FoodDeliveryTime(order string) int {
 	}
 	return time.preptime
 }
-func main() {
-	fmt.Println(FoodDeliveryTime("burger"))
-	fmt.Println(FoodDeliveryTime("chips"))
-	fmt.Println(FoodDeliveryTime("nuggets"))
-	fmt.Println(FoodDeliveryTime("burger") + FoodDeliveryTime("chips") + FoodDeliveryTime("nuggets"))
-}
+
+//func main() {
+// 	fmt.Println(FoodDeliveryTime("burger"))
+// 	fmt.Println(FoodDeliveryTime("chips"))
+// 	fmt.Println(FoodDeliveryTime("nuggets"))
+// 	fmt.Println(FoodDeliveryTime("burger") + FoodDeliveryTime("chips") + FoodDeliveryTime("nuggets"))
+// }

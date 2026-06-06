@@ -1,9 +1,5 @@
 package main
 
-import (
-	"github.com/01-edu/z01"
-)
-
 func Rot14(s string) string {
 	var newstr string
 	for _, ch := range s {
@@ -28,11 +24,11 @@ func Rot14(s string) string {
 	return newstr
 }
 
-func main() {
-	result := Rot14("Hello! How are You?")
+// func main() {
+// 	result := Rot14("Hello! How are You?")
 
-	for _, r := range result {
-		z01.PrintRune(r)
-	}
-	z01.PrintRune('\n')
-}
+// 	for _, r := range result {
+// 		z01.PrintRune(r)
+// 	}
+// 	z01.PrintRune('\n')
+// }
