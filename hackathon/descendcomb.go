@@ -1,23 +1,30 @@
 package main
 
-import "fmt"
+import (
+	"strings"
+)
 
-func DescendComb() {
-	for i := 9; i >= 0; i-- {
-		for j := 9; j >= i; j-- {
-			for k := 9; k >= 0; k-- {
-				for l := j - 1; l >= 0; l-- {
-					if i == 0 && j == 1 && k == 0 && l == 0 {
-						fmt.Printf("%d%d %d%d", i, j, k, l)
-						break
-					}
-					fmt.Printf("%d%d %d%d, ", i, j, k, l)
-				}
-			}
+func DuplicateEncode(word string) string {
+	myMap := make(map[rune]int)
+	var build strings.Builder
+	for _, ch := range word {
+
+		if val, exists := myMap[ch]; exists {
+			myMap[ch] = val + 1
+		} else {
+			myMap[ch] = 1
 		}
 	}
+	for _, ch := range word {
+		if myMap[ch] < 2 {
+			build.WriteString("(")
+		} else {
+			build.WriteString(")")
+		}
+	}
+	return build.String()
 }
 
-func main() {
-	DescendComb()
-}
+// func main() {
+// 	fmt.Println(DuplicateEncode("(())())"))
+// }
