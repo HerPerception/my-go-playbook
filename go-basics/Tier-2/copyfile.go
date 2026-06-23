@@ -7,22 +7,25 @@ import (
 
 func CopyFile(src, dst string) error {
 	file, err := os.OpenFile(src, os.O_RDWR, 0644)
-	defer file.Close()
 	if err != nil {
 		return err
 	}
+	defer file.Close()
+
 	dstfile, err := os.Create(dst)
-	defer dstfile.Close()
 
 	if err != nil {
 		return err
 	}
+	defer dstfile.Close()
+
 	_, err = io.Copy(dstfile, file)
 	if err != nil {
 		return err
 	}
 	return nil
 }
-func main() {
 
-}
+// func main() {
+
+// }
