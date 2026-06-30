@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Generator</title>
+    <!-- 1. The stylesheet link -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ASCII Art Generator</h1>
+        
+        <form action="/ascii-art" method="post" class="ascii-form">
+            <div class="form-group">
+                <label for="text" class="main-label">Enter Your Text</label>
+                <textarea name="text" id="text" placeholder="Type something here...">{{.Text}}</textarea>
+            </div>
+            
+            <div class="form-group">
+                <label class="main-label">Choose Banner Style</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="banner" value="standard" id="standard" checked>
+                        <span>Standard</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="banner" value="shadow" id="shadow">
+                        <span>Shadow</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="banner" value="thinkertoy" id="thinkertoy">
+                        <span>Thinkertoy</span>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Generate Art</button>
+        </form>
+
+        {{if .Result}}
+        <div class="result-container">
+            <h2>Output:</h2>
+            <!-- Fixed the overflow-x attribute to standard CSS styling -->
+            <pre class="ascii-output">{{.Result}}</pre>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>

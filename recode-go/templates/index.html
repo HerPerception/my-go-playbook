@@ -20,7 +20,7 @@
     <button type="submit">Generate</button>
     </form>
     {{if .Result}}
-    <pre>{{.Result}}</pre>
+    <pre overflow-x="auto">{{.Result}}</pre>
     <a href="http://localhost:8080/ascii-art-switch?text={{.Text}}&banner=standard" class="active">Standard</a>
     <a href="http://localhost:8080/ascii-art-switch?text={{.Text}}&banner=shadow" class="active">Shadow</a>
     <a href="http://localhost:8080/ascii-art-switch?text={{.Text}}&banner=thinkertoy" class="active">Thinkertoy</a>
