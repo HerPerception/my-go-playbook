@@ -8,7 +8,7 @@ import (
 
 func ValidateText(text string) (rune, error) {
 	for _, ch := range text {
-		if ch < 32 || ch > 126 {
+		if (ch < 32 || ch > 126) && ch != '\n' {
 			return ch, fmt.Errorf("Input text contains unsupported character: %c", ch)
 		}
 	}
@@ -16,6 +16,7 @@ func ValidateText(text string) (rune, error) {
 }
 
 func GenerateArt(text, filename string) (string, error) {
+	text = strings.ReplaceAll(text, "\r\n", "\n")
 	if _, err := ValidateText(text); err != nil {
 		return "", err
 	}
@@ -24,7 +25,7 @@ func GenerateArt(text, filename string) (string, error) {
 		return "", err
 	}
 
-	str := strings.Split(strings.ReplaceAll(text, "\r\n", "\n"), "\n")
+	str := strings.Split(text, "\n")
 	lines := strings.Split(strings.ReplaceAll(string(fileContent), "\r\n", "\n"), "\n")
 	lines = lines[1:]
 	var result []string
